@@ -38,10 +38,10 @@ fn main() {
     match cli.command {
         Some(Commands::List) => list_users(),
         Some(Commands::Add {
-                 username,
-                 password,
-                 admin,
-             }) => println!("Add a user"),
+            username,
+            password,
+            admin,
+        }) => println!("Add a user"),
         None => println!("Run with --help to see instructions."),
     }
 }
