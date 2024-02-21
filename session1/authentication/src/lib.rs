@@ -1,11 +1,8 @@
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use std::fs;
 use std::io::stdin;
-
-#[derive(Debug, PartialEq, Clone)]
-pub enum LoginRole {
-    Admin,
-    User,
-}
+use std::path::Path;
 
 #[derive(Debug, PartialEq)]
 pub enum LoginAction {
@@ -13,7 +10,13 @@ pub enum LoginAction {
     Denied,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
+pub enum LoginRole {
+    Admin,
+    User,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct User {
     pub username: String,
     pub password: String,
@@ -37,7 +40,7 @@ pub fn get_users_vec() -> Vec<User> {
     ]
 }
 
-pub fn get_users() -> HashMap<String, User> {
+pub fn get_default_users() -> HashMap<String, User> {
     let mut users = HashMap::new();
     users.insert(
         "admin".to_string(),
@@ -49,6 +52,21 @@ pub fn get_users() -> HashMap<String, User> {
     );
 
     users
+}
+
+fn get_users() -> HashMap<String, User> {
+    let users_path = Path::new("users.json");
+    if users_path.exists() {
+        // Load file.
+        let users_json = fs::read_to_string(users_path).unwrap();
+        serde_json::from_str(&users_json).unwrap()
+    } else {
+        // Create file.
+        let users = get_default_users();
+        let users_json = serde_json::to_string(&users).unwrap();
+        fs::write(users_path, users_json).unwrap();
+        users
+    }
 }
 
 pub fn greet_user(name: &str) -> String {
