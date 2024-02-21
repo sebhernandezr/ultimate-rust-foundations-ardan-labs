@@ -1,6 +1,6 @@
 use std::io::stdin;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub enum LoginRole {
     Admin,
     User,
@@ -43,29 +43,26 @@ pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username = username.to_lowercase();
 
     let users = get_users();
-    match users.iter().find(|user| user.username == username) {
-        Some(user) => {
-            if user.password == password {
-                Some(LoginAction::Granted(user.role));
-            } else {
-                Some(LoginAction::Denied)
-            }
+
+    // match users.iter().find(|user| user.username == username) {
+    //     Some(user) => {
+    //         if user.password == password {
+    //             Some(LoginAction::Granted(user.role.clone()))
+    //         } else {
+    //             Some(LoginAction::Denied)
+    //         }
+    //     }
+    //     None => None,
+    // }
+
+    if let Some(user) = users.iter().find(|user| user.username == username) {
+        if user.password == password {
+            Some(LoginAction::Granted(user.role.clone()))
+        } else {
+            Some(LoginAction::Denied)
         }
-        None => {}
-    }
-
-    let username = username.to_lowercase();
-
-    if username != "admin" && username != "bob" {
-        return None;
-    }
-
-    if username == "admin" && password == "password" {
-        Some(LoginAction::Granted(LoginRole::Admin))
-    } else if username == "bob" && password == "password" {
-        Some(LoginAction::Granted(LoginRole::User))
     } else {
-        Some(LoginAction::Denied)
+        None
     }
 }
 
@@ -88,12 +85,13 @@ mod tests {
     fn test_login() {
         assert_eq!(
             login("admin", "password"),
-            LoginAction::Granted(LoginRole::Admin)
+            Some(LoginAction::Granted(LoginRole::Admin))
         );
         assert_eq!(
             login("bob", "password"),
-            LoginAction::Granted(LoginRole::User)
+            Some(LoginAction::Granted(LoginRole::User))
         );
-        assert_eq!(login("not-admin", "password"), LoginAction::Denied);
+        assert_eq!(login("admin", "not-password"), Some(LoginAction::Denied));
+        assert_eq!(login("not-admin", "not-password"), None);
     }
 }
