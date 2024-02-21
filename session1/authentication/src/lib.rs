@@ -54,7 +54,7 @@ pub fn get_default_users() -> HashMap<String, User> {
     users
 }
 
-fn get_users() -> HashMap<String, User> {
+pub fn get_users() -> HashMap<String, User> {
     let users_path = Path::new("users.json");
     if users_path.exists() {
         // Load file.
@@ -67,6 +67,12 @@ fn get_users() -> HashMap<String, User> {
         fs::write(users_path, users_json).unwrap();
         users
     }
+}
+
+pub fn save_users(users: HashMap<String, User>) {
+    let users_path = Path::new("users.json");
+    let users_json = serde_json::to_string(&users).unwrap();
+    fs::write(users_path, users_json).unwrap();
 }
 
 pub fn greet_user(name: &str) -> String {
