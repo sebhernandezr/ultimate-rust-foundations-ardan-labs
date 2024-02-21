@@ -12,6 +12,7 @@ pub enum LoginAction {
     Denied,
 }
 
+#[derive(Debug)]
 pub struct User {
     pub username: String,
     pub password: String,
@@ -28,8 +29,8 @@ impl User {
     }
 }
 
-pub fn get_users() -> [User; 2] {
-    [
+pub fn get_users() -> Vec<User> {
+    vec![
         User::new("admin", "password", LoginRole::Admin),
         User::new("bob", "password", LoginRole::User),
     ]
@@ -93,5 +94,17 @@ mod tests {
         );
         assert_eq!(login("admin", "not-password"), Some(LoginAction::Denied));
         assert_eq!(login("not-admin", "not-password"), None);
+    }
+
+    #[test]
+    fn test_vectors() {
+        let users = get_users();
+        let admins: Vec<_> = users
+            .iter()
+            .filter(|u| u.role == LoginRole::Admin)
+            .collect();
+
+        assert_eq!(users.len(), 2);
+        assert_eq!(admins.len(), 1);
     }
 }
