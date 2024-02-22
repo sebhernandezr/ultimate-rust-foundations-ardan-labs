@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/session1/variables/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session1/login_manager/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/hello/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/session1/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
