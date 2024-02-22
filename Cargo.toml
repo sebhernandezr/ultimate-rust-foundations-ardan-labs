@@ -1,4 +1,4 @@
-workspace = { members = ["session1/authentication", "session1/login", "session1/login_manager", "session2/divide_work", "session2/hello", "session2/thread_builder"] }
+workspace = { members = ["session1/authentication", "session1/login", "session1/login_manager", "session2/divide_work", "session2/hello", "session2/scoped_threads", "session2/thread_builder"] }
 [package]
 name = "ardan"
 version = "0.1.0"
