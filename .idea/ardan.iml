@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/session2/devide_work/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session2/divide_work/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session2/hello/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/thread_builder/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/session1/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
