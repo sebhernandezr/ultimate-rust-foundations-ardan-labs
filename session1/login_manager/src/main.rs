@@ -82,15 +82,15 @@ fn main() {
     match cli.command {
         Some(Commands::List) => list_users(),
         Some(Commands::Add {
-                 username,
-                 password,
-                 admin,
-             }) => add_users(username, password, admin.unwrap_or(false)),
+            username,
+            password,
+            admin,
+        }) => add_users(username, password, admin.unwrap_or(false)),
         Some(Commands::Delete { username }) => delete_user(username),
         Some(Commands::ChangePassword {
-                 username,
-                 new_password,
-             }) => change_password(username, new_password),
+            username,
+            new_password,
+        }) => change_password(username, new_password),
         None => println!("Run with --help to see instructions."),
     }
 }
