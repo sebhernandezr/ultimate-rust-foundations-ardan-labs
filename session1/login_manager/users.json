@@ -1,1 +1,12 @@
-{"admin":{"username":"admin","password":"d63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01","role":"Admin"},"bob":{"username":"bob","password":"d63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01","role":"User"}}
+{
+  "fred": {
+    "username": "fred",
+    "password": "56605678e10676fb7aabc5a0d60c4b295d98c3abab9dfcd3824fcf84",
+    "role": "User"
+  },
+  "admin": {
+    "username": "admin",
+    "password": "d63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01",
+    "role": "Admin"
+  }
+}
