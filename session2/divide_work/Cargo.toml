@@ -1,6 +1,5 @@
-workspace = { members = ["session1/authentication", "session1/login", "session1/login_manager", "session2/divide_work", "session2/hello"] }
 [package]
-name = "ardan"
+name = "divide_work"
 version = "0.1.0"
 edition = "2021"
 
