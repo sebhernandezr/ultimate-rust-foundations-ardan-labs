@@ -21,6 +21,7 @@
       <sourceFolder url="file://$MODULE_DIR$/session2/deadlocks/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session2/channels/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session2/parking/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/workers/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/session1/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
