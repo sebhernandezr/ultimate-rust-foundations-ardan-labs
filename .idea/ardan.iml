@@ -17,6 +17,8 @@
       <sourceFolder url="file://$MODULE_DIR$/session2/atomics/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session2/mutexes/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session2/rwlock/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/dashing/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/deadlocks/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/session1/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
